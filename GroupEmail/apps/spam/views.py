@@ -26,7 +26,7 @@ class Spam:
         self.from_email = settings.EMAIL_HOST_USER
         self.email_template ='email/groupemail.html'
         self.image_filename = 'oustandinglog.png'
-        self.pdf_filename = '2019testsdfsdfsf（11-17 成都）.pdf'
+        self.pdf_filename = '2019国际创新创业教育峰会邀请函(11-17 成都）.pdf'
         self.default_name = 'default'
 
         self.recipients_excel = os.path.join(settings.REPOSITORY_ROOT, 'data', 'recipients_sample.xlsx')

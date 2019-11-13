@@ -131,8 +131,8 @@ MEDIA_ROOT = os.path.join(REPOSITORY_ROOT, 'media')
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.qiye.163.com'  # 如果是 163 改成 smtp.163.com
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'nidssdfdsfse@cdsfsdfrt.com'  # 帐号
-EMAIL_HOST_PASSWORD = 'zZwsdfsfdfdscYKpq'  # 密码
+EMAIL_HOST_USER = 'dfgdfgdfgdfg@dfgdfgdfg.com'  # 帐号
+EMAIL_HOST_PASSWORD = 'fgfgdfgdgfgd'  # 密码
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 

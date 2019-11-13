@@ -3,7 +3,11 @@
 * django-2.2
 * pandas-0.25.3
 * xlrd-1.2.0
+* aliyun-python-sdk-core-2.13.10
+* requests-2.22.0
 
+# 群发邮件
+----------
 
 ### 发邮件注意事项：
 
@@ -26,7 +30,7 @@
     - [参考2](https://unix.stackexchange.com/questions/179205/is-there-any-way-to-check-email-sent-success-acknowledgement)
 
 3. 各邮箱服务商对个人邮箱每日发送的邮件数量有限制，注意查看退件
-
+    - 网易限制网易企业免费邮件发送量150封/天，网易企业邮箱1000封/天？ 
 
 ### [群发邮件参考](https://www.jb51.net/article/34498.htm)
 
@@ -143,7 +147,6 @@ Email [gsdfdsfe@sdfsdfdu.com] was sended with result code: 1
 Email [innomal@ example.com] was sended with result code: 1
 Email [qisdfdsfdeng@sdfsdfdu.com] was sended with result code: 1
 >>> exit()
-
 ```
 
 
@@ -155,5 +158,44 @@ Email [qisdfdsfdeng@sdfsdfdu.com] was sended with result code: 1
 
 
 ### [Sending Emails With Django Templates Stored in a Database](https://blog.anvileight.com/posts/django-email-templates-with-context-stored-in-database/)
+
+
+
+# 群发短信
+---------
+
+###
+
+1. [阿里云短信服务](https://help.aliyun.com/document_detail/112147.html?spm=a2c4g.11186623.6.646.240650a4JXmwiw)
+    ```python
+    # coding=utf-8
+    
+    from aliyunsdkcore.client import AcsClient
+    from aliyunsdkcore.request import CommonRequest
+    client = AcsClient('teestsets', 'tesdsfsdfs', 'cn-hangzhou')
+    
+    request = CommonRequest()
+    request.set_accept_format('json')
+    request.set_domain('dysmsapi.aliyuncs.com')
+    request.set_method('POST')
+    request.set_protocol_type('https') # https | http
+    request.set_version('2017-05-25')
+    request.set_action_name('SendSms')
+    
+    request.add_query_param('RegionId', "cn-hangzhou")
+    request.add_query_param('PhoneNumber', "17045642975")
+    request.add_query_param('SignName', "奥特思鼎")
+    request.add_query_param('TemplateCode', "TemplateCode")
+    
+    response = client.do_action_with_exception(request)
+    print(str(response, encoding='utf-8'))
+    ```
+
+2. 阿里云短信的限制：
+    - 发送短信的账户主体，必须实名认证，短信的签名和发送内容模板必须经过认证审核后，才能够发送，才能够通过api发送。
+    - https://api.aliyun.com/new#/?product=Dysmsapi&api=SendSms&params={%22RegionId%22:%22cn-hangzhou%22}&tab=DEMO&lang=PYTHON
+
+
+3. [SimpleSMS](https://rapidapi.com/iddogino/api/simplesms)
 
 
