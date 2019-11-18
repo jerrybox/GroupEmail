@@ -5,6 +5,8 @@
 * xlrd-1.2.0
 * aliyun-python-sdk-core-2.13.10
 * requests-2.22.0
+* pinyin-0.4.0
+* openpyxl-3.0.1
 
 # 群发邮件
 ----------
@@ -31,6 +33,15 @@
 
 3. 各邮箱服务商对个人邮箱每日发送的邮件数量有限制，注意查看退件
     - 网易限制网易企业免费邮件发送量150封/天，网易企业邮箱1000封/天？ 
+
+4. 其他
+    -
+    - .?@.*.edu.cn 格式的邮箱极其容易屏蔽掉我们发送的邮件
+    
+5. 收件
+    - 网易企业邮箱开启授权码后：您已开启客户端授权密码服务，您已无法使用邮箱密码在客户端登录
+    
+
 
 ### [群发邮件参考](https://www.jb51.net/article/34498.htm)
 
@@ -199,3 +210,12 @@ Email [qisdfdsfdeng@sdfsdfdu.com] was sended with result code: 1
 3. [SimpleSMS](https://rapidapi.com/iddogino/api/simplesms)
 
 
+# 汉字转拼音
+
+1. shell
+```sh
+>>> python manage.py shell
+>>> from GroupEmail.apps.hanzitopinyin.views import HanZiToPinYin
+>>> HanZiToPinYin('new.xlsx').run()
+>>> 
+```
